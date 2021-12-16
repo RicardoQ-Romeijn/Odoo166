@@ -1,0 +1,28 @@
+<odoo>
+    <record id="odoo166.juegos_report" model="ir.actions.report">
+        <field name="name"> Informe de juegoss</field>
+        <field name="model">odoo166.juegos</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo166.juegos_report_view</field>
+        <field name="report_file">odoo166.juegos_report</field>
+        <field name="binding_model_id" ref="model_odoo166_juegos"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="juegos_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Juegos</h1><br />
+                <t t-foreach="docs" t-as="juegos">
+                    <ul>
+                        <li>Nombre: <span t-field="juegos.name" /></li>
+                        <li>Imagen: <span t-field="juegos.imagen" /></li>
+                        <li>Precio: <span t-field="juegos.precio" /></li>
+                        <li>Fecha: <span t-field="juegos.date" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+<!--
+          <record id="prueba0" model="odoo166.juegos">
+              <field name="name">Skyrim</field>
+              <field name="imagen">Imagen</field>
+              <field name="precio">29</field>
+              <field name="date">11/11/2006</field>
+          </record>
+
+          <record id="prueba1" model="odoo166.juegos">
+              <field name="name">Minecraft</field>
+              <field name="imagen">Imagen</field>
+              <field name="precio">25</field>
+              <field name="date">1/5/2009</field>
+          </record>
+-->
+    </data>
+</odoo>

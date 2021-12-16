@@ -1,0 +1,155 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="odoo166.list">
+      <field name="name">odoo166 list</field>
+      <field name="model">odoo166.odoo166</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="odoo166.action_window">
+      <field name="name">odoo166 window</field>
+      <field name="res_model">odoo166.odoo166</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="odoo166.action_server">
+      <field name="name">odoo166 server</field>
+      <field name="model_id" ref="model_odoo166_odoo166"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="odoo166" id="odoo166.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="odoo166.menu_1" parent="odoo166.menu_root"/>
+    <menuitem name="Menu 2" id="odoo166.menu_2" parent="odoo166.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="odoo166.menu_1_list" parent="odoo166.menu_1"
+              action="odoo166.action_window"/>
+    <menuitem name="Server to list" id="odoo166" parent="odoo166.menu_2"
+              action="odoo166.action_server"/>
+-->
+    <!-- Vistas de juegos-->
+
+    <record model="ir.ui.view" id="odoo166.juegos_list_view">
+      <field name="name">odoo166.juegos.view.tree</field>
+      <field name="model">odoo166.juegos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="imagen"/>
+          <field name="precio"/>
+          <field name="date"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="odoo166.juegos_search_view">
+      <field name="name">odoo166.juegos.view.search</field>
+      <field name="model">odoo166.juegos</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="imagen"/>
+          <field name="precio"/>
+          <group>
+            <filter name="group_by_name" string="name" context="{'gropup_by':'name'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    
+    <!-- form -->
+    
+    <record model="ir.ui.view" id="odoo166.juegos_form_view">
+      <field name="name">odoo166.juegos.view.form</field>
+      <field name="model">odoo166.juegos</field>
+      <field name="arch" type="xml">
+        <form string="Información Juegos">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Juego:
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="name" placeholder="Nombre Juego"/>
+                <field name="imagen" placeholder="Imagen URL"/>
+                <field name="precio" placeholder="Precio"/>
+                <field name="date"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+
+<!-- calendar -->
+
+    <record model="ir.ui.view" id="odoo166.juegos_calendar_view">
+      <field name="name">odoo166.juegos.view.calendar</field>
+      <field name="model">odoo166.juegos</field>
+      <field name="arch" type="xml">
+        <calendar string="Fecha de Publicación" date_start="date" color="name" mode="month">
+          <field name="name"/>
+          <field name="imagen"/>
+          <field name="precio"/>
+        </calendar>
+      </field>
+    </record>
+
+
+
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo166.juegos_action_window">
+      <field name="name">juegos</field>
+      <field name="res_model">odoo166.juegos</field>
+      <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+    <menuitem name="odoo166" id="odoo166.menu_root"/>
+    <menuitem name="juegos" id="odoo166.menu_juegos" parent="odoo166.menu_root"/>
+    <menuitem name="List" id="odoo166.menu_juegos_list" parent="odoo166.menu_juegos"
+              action="odoo166.juegos_action_window"/>
+    
+  </data>
+</odoo>
